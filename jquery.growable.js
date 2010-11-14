@@ -43,6 +43,9 @@
       this.textarea.keyup(function(e) {
         self.grow(this);
       });
+      this.textarea.bind('paste', function(e){
+        setTimeout(self.grow(this), 250)
+      });
       self.grow(self.el);
     },
     grow: function(ta) {
