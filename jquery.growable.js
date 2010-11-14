@@ -28,6 +28,7 @@
     this.options = o || { min_height:2 };
     this.textarea = jQuery(e);
     this.org_rows = e.rows;
+    this.el = e;
     this.init();
   };
   /*
@@ -42,11 +43,11 @@
       this.textarea.keyup(function(e) {
         self.grow(this);
       });
+      self.grow(self.el);
     },
     grow: function(ta) {
-      var lines = ta.value.split('\n');
-      if(lines[lines.length-1].length > 0) lines++;
-      var new_rows = lines.length;
+      var lines = ta.value.split('\n'), new_rows = lines.length;
+      if(lines[new_rows-1].length > 0) new_rows++;
       if (new_rows > ta.rows) { ta.rows = (this.options.max_height != "undefined" && new_rows > this.options.max_height) ? this.options.max_height : new_rows; }
       if (new_rows < ta.rows) { ta.rows = Math.max(Math.max(this.org_rows,1), new_rows); }
     }
