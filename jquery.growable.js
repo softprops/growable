@@ -19,7 +19,7 @@
  *    
  */
 (function($) {
-  $.fn.growable = function(o) {	
+  $.fn.growable = function(o) {
     return this.each(function() {
       new jQuery.growable(this, o);
     });
@@ -38,7 +38,7 @@
   $.growable.fn.extend({
     init: function() {
       var self = this;
-      this.textarea.keyup( function(e) {
+      this.textarea.keyup(function(e) {
         self.grow(this);
       });
     },
