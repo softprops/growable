@@ -38,6 +38,7 @@
   $.growable.fn.extend({
     init: function() {
       var self = this;
+      $(this.textarea).css({'overflow':'hidden'});
       this.textarea.keyup(function(e) {
         self.grow(this);
       });
